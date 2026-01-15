@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/jobportal_dev
+
+logging:
+  level:
+    root: DEBUG
+    com.jobportal: DEBUG
+

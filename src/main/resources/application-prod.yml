@@ -1,0 +1,11 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+
+logging:
+  level:
+    root: INFO
+    com.jobportal: INFO
+    org.springframework.security: WARN
+

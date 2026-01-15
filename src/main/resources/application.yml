@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: job-portal-backend
+  
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/jobportal}
+      auto-index-creation: true
+  
+  security:
+    jwt:
+      secret: ${JWT_SECRET:your-256-bit-secret-key-change-this-in-production-minimum-32-characters}
+      expiration: ${JWT_EXPIRATION:86400000} # 24 hours in milliseconds
+
+server:
+  port: ${SERVER_PORT:8080}
+  error:
+    include-message: always
+    include-binding-errors: always
+
+logging:
+  level:
+    root: INFO
+    com.jobportal: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.data.mongodb: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/job-portal.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
